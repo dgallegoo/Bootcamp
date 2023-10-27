@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+            id="Bootcamp_BookmarkCustomer::bookmarks"
+            title="Bookmarks List"
+            translate="Bookmarks List"
+            module="Bootcamp_BookmarkCustomer"
+            resource="Bootcamp_BookmarkCustomer::bookmarks"
+            parent="Magento_Customer::customer"
+            sortOrder="900"
+        />
+        <add
+            id="Bootcamp_BookmarkCustomer::all_customers_bookmarks"
+            title="All Customers Bookmarks"
+            translate="title"
+            module="Bootcamp_BookmarkCustomer"
+            resource="Bootcamp_BookmarkCustomer::all_customers_bookmarks"
+            parent="Bootcamp_BookmarkCustomer::bookmarks"
+            action="bookmarks/AllCustomersBookmarks"
+        />
+    </menu>
+</config>

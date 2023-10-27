@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="bootcamp_bookmark_customer" resource="default" engine="innodb" comment="Bookmark Customer Table">
+        <column xsi:type="int" name="id" unsigned="true" nullable="false" identity="true"
+                comment="Bookmark ID"/>
+        <column xsi:type="int" name="customer_id" unsigned="true" nullable="false" identity="false"
+                default="0" comment="Customer ID"/>
+        <column name="customer_name" xsi:type="text" nullable="false" comment="Customer Name" />
+        <column xsi:type="varchar" name="url_page" nullable="true" length="200" comment="URL"/>
+        <column xsi:type="varchar" name="page_title" nullable="true" length="50" comment="Page Title"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="id"/>
+        </constraint>
+        <constraint xsi:type="foreign" referenceId="BOOKMARK_CUSTOMER_ID_CUSTOMER_ENTITY_ENTITY_ID" table="bootcamp_bookmark_customer"
+                    column="customer_id" referenceTable="customer_entity" referenceColumn="entity_id"
+                    onDelete="CASCADE"/>
+    </table>
+</schema>

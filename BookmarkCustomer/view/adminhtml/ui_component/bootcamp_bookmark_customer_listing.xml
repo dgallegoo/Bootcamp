@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">bootcamp_bookmark_customer_listing.bootcamp_bookmark_customer_listing_data_source</item>
+        </item>
+    </argument>
+    <settings>
+        <deps>
+            <dep>bootcamp_bookmark_customer_listing.bootcamp_bookmark_customer_listing_data_source</dep>
+        </deps>
+        <spinner>bootcamp_bookmark_customer_columns</spinner>
+    </settings>
+    <dataSource name="bootcamp_bookmark_customer_listing_data_source" component="Magento_Ui/js/grid/provider">
+        <settings>
+            <updateUrl path="mui/index/render"/>
+            <storageConfig>
+                <param name="indexField" xsi:type="string">id</param>
+            </storageConfig>
+        </settings>
+        <aclResource>Bootcamp_BookmarkCustomer::all_bookmarks_customers</aclResource>
+        <dataProvider name="bootcamp_bookmark_customer_listing_data_source" class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+            <settings>
+                <requestFieldName>id</requestFieldName>
+                <primaryFieldName>id</primaryFieldName>
+            </settings>
+        </dataProvider>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <settings>
+            <sticky>true</sticky>
+        </settings>
+        <paging name="listing_paging"/>
+        <columnsControls name="columns_controls"/>
+        <bookmark name="bookmarks" />
+        <filters name="listing_filters" />
+    </listingToolbar>
+    <columns name="bootcamp_bookmark_customer_columns">
+        <settings>
+            <childDefaults>
+                <param name="fieldAction" xsi:type="array">
+                    <item name="provider" xsi:type="string">bootcamp_bookmark_customer_listing.bootcamp_bookmark_customer_listing.bootcamp_bookmark_customer_columns.actions</item>
+                    <item name="target" xsi:type="string">applyAction</item>
+                    <item name="params" xsi:type="array">
+                        <item name="0" xsi:type="string">view</item>
+                        <item name="1" xsi:type="string">${ $.$data.rowIndex }</item>
+                    </item>
+                </param>
+            </childDefaults>
+        </settings>
+        <column name="id" sortOrder="1">
+
+            <settings>
+                <label translate="true">ID</label>
+                <sorting>desc</sorting>
+            </settings>
+        </column>
+        <column name="customer_id" sortOrder="2">
+            <settings>
+                <label translate="true">Customer Id</label>
+                <filter>text</filter>
+            </settings>
+        </column>
+        <column name="customer_name" sortOrder="3">
+            <settings>
+                <label translate="true">Customer Name</label>
+                <filter>text</filter>
+            </settings>
+        </column>
+        <column name="page_title" sortOrder="4">
+            <settings>
+                <label translate="true">Page Title</label>
+                <filter>text</filter>
+            </settings>
+        </column>
+        <column name="url_page" sortOrder="5">
+            <settings>
+                <label translate="true">URL</label>
+                <filter>text</filter>
+            </settings>
+        </column>
+        <actionsColumn name="actions" class="Bootcamp\BookmarkCustomer\Ui\Component\Listing\Column\Actions" sortOrder="6"/>
+    </columns>
+</listing>

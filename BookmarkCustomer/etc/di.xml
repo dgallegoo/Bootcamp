@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <virtualType name="Bootcamp\BookmarkCustomer\Model\ResourceModel\Bookmark\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">bootcamp_bookmark_customer</argument>
+            <argument name="resourceModel" xsi:type="string">Bootcamp\BookmarkCustomer\Model\ResourceModel\Bookmark</argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="bootcamp_bookmark_customer_listing_data_source" xsi:type="string">Bootcamp\BookmarkCustomer\Model\ResourceModel\Bookmark\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <preference for="Bootcamp\BookmarkCustomer\Api\Data\BookmarkInterface" type="Bootcamp\BookmarkCustomer\Model\Bookmark"/>
+    <preference for="Bootcamp\BookmarkCustomer\Api\BookmarkRepositoryInterface" type="Bootcamp\BookmarkCustomer\Model\BookmarkRepository"/>
+</config>
