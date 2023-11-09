@@ -8,7 +8,7 @@ use Magento\Framework\App\Config\ScopeConfigInterface;
 use Magento\Framework\Controller\ResultFactory;
 class Index implements HttpGetActionInterface
 {
-    const BOOKMARK_SETTING = 'bookmarks_for_customers/general/enable';
+    const BOOKMARK_SETTING = 'bookmark/options/active';
     public function __construct(
         private readonly PageFactory $pageFactory,
         private readonly ScopeConfigInterface $scopeConfig,
@@ -19,7 +19,8 @@ class Index implements HttpGetActionInterface
     {
         $page = $this->pageFactory->create();
         $value = $this->scopeConfig->getValue(self::BOOKMARK_SETTING);
-        if ($value == "1") {
+
+        if ($value &&  $value == "1") {
             return $page;
         }
 

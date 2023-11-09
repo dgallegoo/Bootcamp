@@ -8,6 +8,7 @@
     use Bootcamp\BookmarkCustomer\Model\ResourceModel\Bookmark\CollectionFactory;
     use Magento\Framework\Exception\CouldNotDeleteException;
     use Magento\Framework\Exception\CouldNotSaveException;
+    use Magento\Framework\Exception\LocalizedException;
     use Magento\Framework\Exception\NoSuchEntityException;
     use Magento\Customer\Helper\Session\CurrentCustomer;
 
@@ -26,7 +27,7 @@
         public function save(BookmarkInterface $bookmark): BookmarkInterface
         {
             try {
-                $customerId = $this->getCurrentCustomerId();
+                $customerId = ((int)$this->currentCustomer->getCustomerId());
                 $bookmark->setCustomerId($customerId);
                 $this->resourceModel->save($bookmark);
             } catch (\Exception $exception) {
@@ -70,7 +71,7 @@
         public function getByUrlPage(string $urlPage): int
         {
 
-            $currentCustomerId = $this->getCurrentCustomerId();
+            $currentCustomerId = ((int)$this->currentCustomer->getCustomerId());
             $customerBookmarks =  $this->getCollectionByCustomerIdAndUrlPage($currentCustomerId, $urlPage);
             $bookmarkId = 0;
             if (!empty($customerBookmarks)) {
@@ -86,8 +87,13 @@
             return $collection->setCustomerIdFilter($customerId)->setUrlPageToFilter($urlPage)->getItems();
         }
 
-        private function getCurrentCustomerId(): int
+        /**
+         * @throws LocalizedException
+         */
+        public function getBookmarksByCustomer(): array
         {
-            return (int)$this->currentCustomer->getCustomerId();
+            $customerId =((int)$this->currentCustomer->getCustomerId());
+
+            return $this->getCollectionByCustomerId($customerId);
         }
     }

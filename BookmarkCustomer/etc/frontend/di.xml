@@ -2,7 +2,7 @@
     <type name="Magento\Customer\CustomerData\SectionPoolInterface">
         <arguments>
             <argument name="bookmarkList" xsi:type="array">
-                <item name="section-bookmark" xsi:type="string">Bootcamp\BookmarkCustomer\CustomerData\SectionBookmark</item>
+                <item name="bookmarks-customer" xsi:type="string">Bootcamp\BookmarkCustomer\CustomerData\BookmarksSection</item>
             </argument>
         </arguments>
     </type>

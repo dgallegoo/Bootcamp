@@ -60,6 +60,6 @@ interface BookmarkRepositoryInterface
     /**
      * @return array
      */
-    public function getCurrentCustomerBookmarks(): array;
+    public function getBookmarksByCustomer(): array;
 
 }
