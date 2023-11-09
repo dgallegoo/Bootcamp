@@ -3,6 +3,8 @@
     <virtualType name="Bootcamp\BookmarkCustomer\Model\ResourceModel\Bookmark\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
             <argument name="mainTable" xsi:type="string">bootcamp_bookmark_customer</argument>
+            <argument name="eventPrefix" xsi:type="string">bootcamp_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">bootcamp_collection</argument>
             <argument name="resourceModel" xsi:type="string">Bootcamp\BookmarkCustomer\Model\ResourceModel\Bookmark</argument>
         </arguments>
     </virtualType>

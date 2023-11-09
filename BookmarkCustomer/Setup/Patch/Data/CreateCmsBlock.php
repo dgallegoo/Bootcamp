@@ -47,7 +47,7 @@ class CreateCmsBlock implements DataPatchInterface, PatchRevertableInterface
             ->setTitle('Bookmarks Customer Title')
             ->setIdentifier(self::CMS_BLOCK_IDENTIFIER)
             ->setIsActive(true)
-            ->setContent('<div>My Bookmarks</div>')
+            ->setContent('My Bookmarks')
             ->setStores([Store::DEFAULT_STORE_ID])
             ->save();
 

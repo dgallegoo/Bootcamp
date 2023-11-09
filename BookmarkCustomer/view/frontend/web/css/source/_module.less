@@ -1,0 +1,35 @@
+& when (@media-common = true) {
+    #bookmark-flag {
+        cursor: pointer;
+        margin-top: 5px;
+
+    }
+    .bookmark-customer-icons {
+        .lib-icon-font(
+            @icon-flag,
+            @_icon-font-size: 20px,
+            @_icon-font-line-height: 20px,
+            @_icon-font-text-hide: true,
+            @_icon-font-color: @color-gray34
+        );
+
+        &.flag {
+            .lib-icon-font-symbol(
+                @_icon-font-content: @icon-flag
+            );
+        }
+        &.flag-sky {
+            .lib-icon-font-symbol(
+                @_icon-font-content: @icon-flag
+            );
+            .lib-icon-font(
+                @icon-flag,
+                @_icon-font-size: 20px,
+                @_icon-font-line-height: 20px,
+                @_icon-font-text-hide: true,
+                @_icon-font-color: @color-sky-blue1
+            );
+        }
+    }
+
+}

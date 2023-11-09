@@ -1,0 +1,26 @@
+<?php
+/* @var $block Magento\Framework\View\Element\Template */
+
+use Magento\Framework\App\ObjectManager;
+
+$objectManager = ObjectManager::getInstance();
+$customerSession = $objectManager->create("Magento\Customer\Model\Session");
+
+?>
+<?php if ($customerSession->isLoggedIn()): ?>
+    <div id="bookmark-customer-ko">
+        <div id="bookmark-customer-knockout"  data-bind="scope: 'bookmarkKnockout'">
+            <!-- ko template: getTemplate() --> <!-- /ko -->
+        </div>
+
+    </div>
+<?php endif;?>
+
+
+<script type="text/x-magento-init">
+    {
+      "#bookmark-customer-ko": {
+        "Magento_Ui/js/core/app": <?= $block -> getJsLayout() ?>
+    }
+  }
+</script>

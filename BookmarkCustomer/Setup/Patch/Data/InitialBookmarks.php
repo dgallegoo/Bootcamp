@@ -28,33 +28,28 @@ class InitialBookmarks implements DataPatchInterface
         $data = [
             [
                 'customer_id' => 2,
-                'customer_name' => 'Diana Gallego',
                 'url_page' => 'https://magento.test/women/bottoms-women/pants-women.html',
                 'page_title' => 'Pants Women'
             ],
             [
                 'customer_id' => 2,
-                'customer_name' => 'Diana Gallego',
                 'url_page' => 'https://magento.test/training.html',
                 'page_title' => 'Training'
             ],
             [
                 'customer_id' => 2,
-                'customer_name' => 'Diana Gallego',
                 'url_page' => 'https://bootcamp.test/gear/fitness-equipment.html',
                 'page_title' => 'Fitness Equipment'
             ],
 
             [
                 'customer_id' => 1,
-                'customer_name' => 'Veronica Costello',
                 'url_page' => 'https://bootcamp.test/training/training-video.html',
                 'page_title' => 'Training Video'
             ],
 
             [
                 'customer_id' => 1,
-                'customer_name' => 'Veronica Costello',
                 'url_page' => 'https://bootcamp.test/women.html',
                 'page_title' => 'Women'
             ],

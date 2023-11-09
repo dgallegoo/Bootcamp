@@ -3,7 +3,6 @@
         "column": {
             "id": true,
             "customer_id": true,
-            "customer_name": true,
             "url_page": true,
             "page_title" : true
         },

@@ -50,5 +50,16 @@ interface BookmarkRepositoryInterface
      */
     public function getCollectionByCustomerId(int $customer_id) : array;
 
+    /**
+     * @param string $urlPage
+     * @return int
+     * @throws LocalizedException
+     */
+    public function getByUrlPage(string $urlPage): int;
+
+    /**
+     * @return array
+     */
+    public function getCurrentCustomerBookmarks(): array;
 
 }

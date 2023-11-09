@@ -9,6 +9,7 @@
     use Magento\Framework\Exception\CouldNotDeleteException;
     use Magento\Framework\Exception\CouldNotSaveException;
     use Magento\Framework\Exception\NoSuchEntityException;
+    use Magento\Customer\Helper\Session\CurrentCustomer;
 
 
     class BookmarkRepository implements BookmarkRepositoryInterface
@@ -17,6 +18,7 @@
             private BookmarkFactory            $factory,
             private BookmarkResourceModel      $resourceModel,
             private readonly CollectionFactory $collectionFactory,
+            private readonly CurrentCustomer $currentCustomer
         )
         {
         }
@@ -24,6 +26,8 @@
         public function save(BookmarkInterface $bookmark): BookmarkInterface
         {
             try {
+                $customerId = $this->getCurrentCustomerId();
+                $bookmark->setCustomerId($customerId);
                 $this->resourceModel->save($bookmark);
             } catch (\Exception $exception) {
                 throw new CouldNotSaveException(__($exception->getMessage()));
@@ -61,5 +65,29 @@
         {
             $collection = $this->collectionFactory->create();
             return $collection->setCustomerIdFilter($customer_id)->getItems();
+        }
+
+        public function getByUrlPage(string $urlPage): int
+        {
+
+            $currentCustomerId = $this->getCurrentCustomerId();
+            $customerBookmarks =  $this->getCollectionByCustomerIdAndUrlPage($currentCustomerId, $urlPage);
+            $bookmarkId = 0;
+            if (!empty($customerBookmarks)) {
+                $bookmarkId = (int)reset($customerBookmarks)->getData()['id'];
+            }
+
+            return $bookmarkId;
+        }
+
+        public function getCollectionByCustomerIdAndUrlPage(int $customerId, string $urlPage): array
+        {
+            $collection = $this->collectionFactory->create();
+            return $collection->setCustomerIdFilter($customerId)->setUrlPageToFilter($urlPage)->getItems();
+        }
+
+        private function getCurrentCustomerId(): int
+        {
+            return (int)$this->currentCustomer->getCustomerId();
         }
     }

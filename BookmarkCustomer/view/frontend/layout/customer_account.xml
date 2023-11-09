@@ -3,9 +3,9 @@
     <body>
         <referenceBlock name="customer_account_navigation">
             <!-- Add menu to the end of the sidebar -->
-            <block class="Magento\Customer\Block\Account\SortLinkInterface" name="customer-account-navigation-customer-bookmarks">
+            <block ifconfig="bookmark/options/active" class="Magento\Customer\Block\Account\SortLinkInterface" name="customer-account-navigation-customer-bookmarks">
                 <arguments>
-                    <argument name="path" xsi:type="string">bookmarks/customerbookmarks/index</argument>
+                    <argument name="path" xsi:type="string">bookmarks/index/index</argument>
                     <argument name="label" xsi:type="string">My Bookmarks</argument>
                     <argument name="sortOrder" xsi:type="number">210</argument>
                 </arguments>

@@ -6,7 +6,6 @@
                 comment="Bookmark ID"/>
         <column xsi:type="int" name="customer_id" unsigned="true" nullable="false" identity="false"
                 default="0" comment="Customer ID"/>
-        <column name="customer_name" xsi:type="text" nullable="false" comment="Customer Name" />
         <column xsi:type="varchar" name="url_page" nullable="true" length="200" comment="URL"/>
         <column xsi:type="varchar" name="page_title" nullable="true" length="50" comment="Page Title"/>
         <constraint xsi:type="primary" referenceId="PRIMARY">

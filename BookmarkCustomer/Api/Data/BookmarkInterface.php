@@ -29,45 +29,45 @@ interface BookmarkInterface
     /**
      * @return int
      */
-    public function getCustomerId() : int;
+    public function getCustomerId();
 
     /**
      * @param int $customer_id
      * @return $this
      */
-    public function setCustomerId(int $customer_id) : self;
+    public function setCustomerId($customer_id);
 
     /**
      * @return string
      */
-    public function getCustomerName(): string;
+    public function getCustomerName();
 
     /**
      * @param string $customer_name
      * @return $this
      */
-    public function setCustomerName(string $customer_name) : self;
+    public function setCustomerName($customer_name);
 
     /**
      * @return string
      */
-    public function getUrlPage() : string;
+    public function getUrlPage();
 
     /**
      * @param string $url_page
      * @return $this
      */
-    public function setUrlPage(string $url_page) : self;
+    public function setUrlPage($url_page);
 
     /**
      * @return string
      */
-    public function getPageTitle() : string;
+    public function getPageTitle();
 
     /**
      * @param string $page_title
      * @return $this
      */
-    public function setPageTitle(string $page_title) : self;
+    public function setPageTitle($page_title);
 
 }

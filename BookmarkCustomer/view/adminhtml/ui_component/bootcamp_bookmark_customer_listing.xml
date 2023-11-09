@@ -48,32 +48,27 @@
                 </param>
             </childDefaults>
         </settings>
-        <column name="id" sortOrder="1">
+        <column name="id">
 
             <settings>
                 <label translate="true">ID</label>
                 <sorting>desc</sorting>
             </settings>
         </column>
-        <column name="customer_id" sortOrder="2">
-            <settings>
-                <label translate="true">Customer Id</label>
-                <filter>text</filter>
-            </settings>
-        </column>
-        <column name="customer_name" sortOrder="3">
+
+        <column name="customer_name">
             <settings>
                 <label translate="true">Customer Name</label>
                 <filter>text</filter>
             </settings>
         </column>
-        <column name="page_title" sortOrder="4">
+        <column name="page_title">
             <settings>
                 <label translate="true">Page Title</label>
                 <filter>text</filter>
             </settings>
         </column>
-        <column name="url_page" sortOrder="5">
+        <column name="url_page" >
             <settings>
                 <label translate="true">URL</label>
                 <filter>text</filter>

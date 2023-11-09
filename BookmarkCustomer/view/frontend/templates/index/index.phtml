@@ -1,0 +1,38 @@
+<?php
+/** @var Magento\Framework\View\Element\Template $block */
+/** @var Magento\Framework\Escaper $escaper */
+/** @var Bootcamp\BookmarkCustomer\ViewModel\Bookmark $bookmarks */
+/** @var Bootcamp\BookmarkCustomer\ViewModel\BookmarkConfig $bookmarkConfig */
+$bookmarks = $block->getData('bookmark_model');
+$bookmarkConfig = $block->getData('bookmark_config');
+?>
+
+ <?php if($bookmarkConfig->getConfig()): ?>
+        <?php if(!empty($bookmarks->getCustomerList())): ?>
+            <table>
+                <thead>
+                <tr>
+                    <th> <?php echo __('Page Title') ?></th>
+                    <th><?php echo __('URL page') ?></th>
+                    <th><?php echo __('Action') ?></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tbody>
+                <?php foreach ($bookmarks->getCustomerList() as $bookmark): ?>
+                    <tr>
+                        <td><?= $bookmark->getData('page_title') ?></td>
+                        <td><a href="<?= $bookmark->getData('url_page') ?>"><?= $bookmark->getData('url_page') ?></a></td>
+                        <td data-th="<?= $block->escapeHtml(__('Action')) ?>" class="col delete">
+                            <a href="<?php echo $bookmarks->getDeleteAction() . 'id/' . $bookmark->getId(); ?>"><?php echo __('Delete') ?></a>
+                        </td>
+                        </tr>
+                <?php endforeach ?>
+                </tbody>
+            </table>
+     <?php else: ?>
+            <div class="message info empty">
+                <span><?= $escaper->escapeHtml(__('You do not have any bookmark')) ?></span>
+            </div>
+        <?php endif ?>
+    <?php endif ?>

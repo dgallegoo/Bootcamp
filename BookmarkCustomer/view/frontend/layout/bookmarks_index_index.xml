@@ -6,7 +6,11 @@
     <body>
         <referenceBlock name="page.main.title">
 
-            <block class="Magento\Cms\Block\Block" name="page.title" >
+            <action method="setPageTitle">
+                <argument name="title" xsi:type="string">My Bookmarks</argument>
+            </action>
+
+            <block class="Magento\Cms\Block\Block" name="block_bookmark" >
                 <arguments>
                     <argument name="block_id" xsi:type="string">bookmark-title-block</argument>
                 </arguments>
@@ -14,11 +18,11 @@
 
         </referenceBlock>
         <referenceContainer name="content">
-            <block class="Bootcamp\BookmarkCustomer\Block\CustomerBookmarks"
-                   name="bookmarks.customerbookmarks.index"
-                   template="Bootcamp_BookmarkCustomer::customerbookmarks/index.phtml">
+            <block name="bookmarks.index.index"
+                   template="Bootcamp_BookmarkCustomer::index/index.phtml">
                 <arguments>
                     <argument name="bookmark_model" xsi:type="object">Bootcamp\BookmarkCustomer\ViewModel\Bookmark</argument>
+                    <argument name="bookmark_config" xsi:type="object">Bootcamp\BookmarkCustomer\ViewModel\BookmarkConfig</argument>
                 </arguments>
             </block>
         </referenceContainer>
